@@ -1,0 +1,39 @@
+html {
+    box-sizing: border-box;
+    font-size: 62.5%; /*Medida Rem para 10 pixeles*/
+}
+
+*, *:before, *:after{
+    box-sizing: inherit;
+}
+
+body{
+    font-family: sans-serif;
+}
+
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 2rem;  /* Preferred icon size */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+  
+
+    -webkit-font-smoothing: antialiased;
+
+    text-rendering: optimizeLegibility;
+  
+
+    -moz-osx-font-smoothing: grayscale;
+  
+
+    font-feature-settings: 'liga';
+}
+
+

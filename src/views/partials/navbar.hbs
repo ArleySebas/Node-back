@@ -1,0 +1,24 @@
+{{#if mostrar_navbar}}
+<header>
+
+    <nav class="barra">
+        <div class="repartir">
+            <a class="logo-itm" href="/">
+                <img class="logo-itm-img" src="img/ITM3.png" alt="Logo ITM">
+            </a>
+        </div>
+
+
+
+        <div class="repartir">
+            <a class="a_home" href="/">
+                <span class="material-icons" id="home">home</span>
+            </a>
+        </div>
+
+        {{>arrowBack_redirectHome}} {{!-- Archivo en carpeta Partials llamado de igual forma, para el caso de mostrar el arrowback necesario en la navbar --}}
+        {{>arrowBack_redirectServicios}}
+    </nav>
+
+</header>
+{{/if}}

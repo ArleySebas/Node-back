@@ -1,0 +1,45 @@
+.barra{
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    background-color: #001D4E;
+    justify-content:space-around;
+    align-items: center;
+    align-content: center;
+    flex-direction: row;
+    gap: 1rem;
+    flex-wrap: wrap;
+}  
+
+.logo-itm .logo-itm-img{
+    width: auto;
+    height: clamp(5rem, 4vw + .5rem, 20rem);
+}
+    
+    
+
+.a_home{
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+    #home{
+        font-size: clamp(4rem, 5vw + .5rem, 8rem);
+    }
+}
+
+
+.arrow-back{
+    text-decoration: none;
+    color: white;
+    background-color: none;
+    background: none;
+    cursor: pointer;
+    #arrow_back{
+        font-size: clamp(4rem, 5vw + .5rem, 8rem);
+    }
+    #arrow_back_servicios{
+        font-size: clamp(4rem, 5vw + .5rem, 8rem);
+    }
+}

@@ -1,0 +1,148 @@
+.container_otros{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    text-align: center;
+
+    gap: 3rem;
+    margin: 0;
+    padding: 2%;
+    width: 100%;
+    height: 100%;
+
+    background: #8EE6FE;
+    background: -moz-linear-gradient(top, #167DDC 0%, #50B8F3 60%, #8EE6FE 100%);
+    background: -webkit-linear-gradient(top, #167DDC 0%, #50B8F3 60%, #8EE6FE 100%);
+    background: linear-gradient(to bottom, #167DDC 0%, #50B8F3 60%, #8EE6FE 100%);
+    
+    border: 0.3rem solid black;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+
+    
+}
+
+.element_otros{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+}
+
+.text-element-otros{
+    padding-top: 2%;
+    font-size: clamp(1rem, 5vw + .5rem, 2.5rem);
+    line-height: 2.5rem;
+    color: white;
+}
+
+.otros-img{
+    width: 40vmin;
+    height: 40vmin;
+    object-fit: cover;
+    box-shadow: 0.1rem 0.1rem 1.9rem black;
+}
+
+
+/* Flip card */
+
+.label-element_otros{
+    position: relative;
+    width: auto;
+    height: 100%;
+    display: grid;
+    grid-template-columns: max-content max-content;
+    grid-template-areas: "O";
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-wrap: wrap;
+    line-height: 2.5rem;
+    color: white;
+}
+
+.label-element_otros input{
+    display: none;
+}
+
+.label-element_otros div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    backface-visibility: hidden;
+    transition: 0.5s;
+}
+
+.front_Otros,
+.back_Otros{
+    grid-area: O;
+}
+
+.label-element_otros .front_Otros{
+    transform: perspective(100rem) rotateY(0deg);
+    gap: 3rem;
+}
+
+.label-element_otros .back_Otros{
+    background: #8EE6FE;
+    background: -moz-linear-gradient(top, #167DDC 0%, #50B8F3 60%, #8EE6FE 100%);
+    background: -webkit-linear-gradient(top, #167DDC 0%, #50B8F3 60%, #8EE6FE 100%);
+    background: linear-gradient(to bottom, #167DDC 0%, #50B8F3 60%, #8EE6FE 100%);
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 2rem;
+
+    transform: perspective(100rem) rotateY(180deg);
+}
+
+.MyForm_Otros{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 3rem;
+    font-size: clamp(2rem, 0.5vw + .5rem, 5rem);
+}
+
+.MySelect-Form_Otros{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: clamp(15rem, 5vw + .5rem, 25rem);
+    height: 5dvb;
+    border-radius: 1rem;
+}
+
+.button-form_Otros{   
+    border-radius: 1rem;
+}
+
+.button-form_Otros img{
+    width: auto;
+    height: clamp(10rem, 2vw + .5rem, 25rem);
+    object-fit: cover;
+}
+
+.label-element_otros input:checked~.front_Otros{
+    transform: perspective(100rem) rotateY(180deg);
+}
+
+.label-element_otros input:checked~.back_Otros{
+    transform: perspective(100rem) rotateY(360deg);
+}
+
+.label-element_otros option:nth-child(even){
+    background-color: lightgreen;
+}
+
+.label-element_otros option:nth-child(odd){
+    background-color: lightgray;
+}

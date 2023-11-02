@@ -1,0 +1,242 @@
+.navbar_Home{
+    background-color: transparent;
+    width: 100%;
+    z-index: 1;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1%;
+}
+
+.navbar_Home .logo_Home{
+    display: block;
+    min-width: 10%;
+}
+
+
+#sidebar_Home{
+    position: fixed;
+    right: -20rem;
+    top: 0;
+    padding: 2%;
+    height: 100dvb;
+    background-color: rgba(0,0,0,0.4);
+    overflow-x: hidden;
+    transition: 0.3s;
+    z-index: 1;
+    
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    flex-direction: row;
+
+}
+
+#sidebar_Home.active p{
+    color: white;
+    font-size: clamp(3rem, 1vw + .5rem, 7rem);
+}
+
+#sidebar_Home .boton_clave{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2% 8%;
+    background-color: white;
+    color: black;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px; 
+    width: clamp(10rem, 4vw + 0.5rem, 80rem);
+    height: auto;
+    font-size: clamp(2rem, 0.8vw + 0.5rem, 5rem);
+    cursor: pointer;
+}
+
+#menu_Home{
+    display: block;
+    width: clamp(5rem, 2vw + .5rem, 15rem);
+    cursor: pointer;
+    z-index: 2;
+}
+
+#sidebar_Home.active{
+    height: 100%;
+    width: 50rem;
+}
+
+
+/*////////////// Container  //////////////*/
+
+.container_Home{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 100dvb;
+
+    
+    background: #0f0c29;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #24243ec7, #302b63c5, #0f0c29cb), url("/img/foto.jpg");  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #24243ec5, #302b63c2, #0f0c29c7), url("/img/foto.jpg"); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-attachment: fixed;
+    background-position: center;
+    background-size: 100% 100%;   
+    background-repeat: no-repeat; 
+
+}
+
+.container_Home .label-element_home{
+    display: grid;
+    grid-template-columns: max-content max-content;
+    grid-template-areas: "A B";
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-wrap: wrap;
+    color: white; 
+}
+
+.container_Home .label-element_home #rating4{
+    display: none;
+}
+
+.container_Home .label-element_home div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    backface-visibility: hidden;
+    transition: 0.5s;
+}
+
+.front_home,
+.back_home{
+    grid-area: H;
+}
+
+.label-element_home .front_home{
+    transform: perspective(100rem) rotateY(0deg);
+}
+
+.label-element_home .front_home img{
+    /* width: 80%;
+    height: 80%; */
+    width: 50vmin;
+    height: 40vmin;
+    object-fit: cover;
+}
+
+.label-element_home .front_home p{
+    font-size: 8rem;
+}
+
+.label-element_home .back_home{
+    transform: perspective(100rem) rotateY(180deg);
+}
+
+.label-element_home #rating4:checked~.front_home{
+    transform: perspective(100rem) rotateY(180deg);
+}
+
+.label-element_home #rating4:checked~.back_home{
+    transform: perspective(100rem) rotateY(360deg);
+}
+
+
+
+
+.formulario{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    align-content: center;
+    position: relative;
+
+}
+
+
+
+.input-home{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    width: 200%;
+    font-size: clamp(1.5rem, 1.3vw + .5rem, 6rem);
+    
+    box-shadow: 0.1rem 0.1rem 1.9rem black;
+    border: 0.1rem solid rgba(255,255,255,0.25);
+    border-radius: 1rem;
+ 
+}
+
+
+.listimg-home-img{
+    width: 15vmin;
+    height: 15vmin;
+    object-fit: cover;
+    box-shadow: 0.1rem 0.1rem 1.9rem black;
+}
+
+.btn-home{
+    width: 12vmin;
+    height: 12vmin;
+    background-color: #0f0c29;
+
+
+    border-radius: 1rem;
+    box-shadow: 1rem 1rem 2rem black;
+    border-radius: 1rem;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.btn-home::before{
+    content: "";
+    background-image: conic-gradient(#0066ff 20deg, transparent 120deg);
+    width: 150%;
+    height: 150%;
+    position: absolute;
+    animation: rotate 2s linear infinite;
+}
+
+
+@keyframes rotate {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(-360deg);
+    }
+}
+
+.listimg-home-btn-home{
+    width: 10.5vmin;
+    height: 10.5vmin;
+    box-shadow: 0.1rem 0.1rem 0.5rem black;
+    border-radius: 1rem;
+    z-index: 0;
+}
+
+
+/*las flechitas del input tipo number*/
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
