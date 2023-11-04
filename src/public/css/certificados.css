@@ -1,42 +1,52 @@
 .container_certificados{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    text-align: center;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(50rem, 1fr));
 
-    gap: 3rem;
-    margin: 0;
-    padding: 2%;
-    width: 100%;
-    height: 100%;
+    justify-items: center;
+    align-items: center;
+    justify-content: space-around;
+    align-content: stretch;
+    gap: 1rem;  
+
     
+    margin: 0;
+    padding: 2rem;
+
+    width: calc(100vw - 0.1rem);
+
     background-color: #20407fe8;
     border: 0.3rem solid black;
+
+    overflow-x: hidden;
 }
 
 .element_cert{
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
     text-align: center;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
-    gap: 3rem;
+    text-align: center;
+
+    gap: 3.4rem;
+
+    width: 100%;
+    height: 100%;
 }
+
+
 
 .text-element_cert{
     padding-top: 4%;
     font-size: clamp(1rem, 5vw + .5rem, 2.5rem);
-    line-height: 2.5rem;
     color: white;
+    max-width: 38rem;
 }
 
 .certificado-img{
-    width: 40vmin;
-    height: 40vmin;
+    width: clamp(35rem, 20vw + .5rem, 50rem);
+    height: clamp(35rem, 20vw + .5rem, 50rem);;
     object-fit: cover;
     box-shadow: 0.1rem 0.1rem 1.9rem black;
 }
@@ -44,31 +54,34 @@
 
 /*  Flip card  */
 
-.container_certificados .label-element_cert{
-    position: relative;
-    width: auto;
-    height: 100%;
+.label-element_cert{
+
     display: grid;
+
     grid-template-columns: max-content max-content;
     grid-template-areas: "A";
     justify-content: center;
     align-items: center;
     text-align: center;
-    flex-wrap: wrap;
-    line-height: 2.5rem;
+
+    position: relative;
+    width: auto;
+    height: 100%;
+
     color: white; 
 }
 
-.container_certificados .label-element_cert input{
+.label-element_cert input{
     display: none;
 }
 
-.container_certificados .label-element_cert div{
+.label-element_cert div{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
+
     backface-visibility: hidden;
     transition: 0.5s;
 }
@@ -80,20 +93,22 @@
 
 .label-element_cert .front{
     transform: perspective(100rem) rotateY(0deg);
-    gap: 3rem;
 }
 
 .label-element_cert .back{
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    height: 100%;
+    width: 100%;
+    border-radius: 2rem;
+
     background: #8EE6FE;
     background: -moz-linear-gradient(top, #167DDC 0%, #50B8F3 60%, #8EE6FE 100%);
     background: -webkit-linear-gradient(top, #167DDC 0%, #50B8F3 60%, #8EE6FE 100%);
     background: linear-gradient(to bottom, #167DDC 0%, #50B8F3 60%, #8EE6FE 100%);
-    height: 100%;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    border-radius: 2rem;
+
     transform: perspective(100rem) rotateY(180deg);
 }
 
@@ -105,7 +120,6 @@
     text-align: center;
     gap: 3rem;
     font-size: clamp(2rem, 0.5vw + .5rem, 5rem);
-    
 }
 
 .label-element_cert .back .MyForm .MySelect-form{
