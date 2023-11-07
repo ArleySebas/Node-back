@@ -1,7 +1,13 @@
 const express = require('express');
+const morgan = require('morgan');
+const session = require('express-session');
+const mongoose = require('mongoose');
+const MongoStore = require('connect-mongo');
 const exphbs = require('express-handlebars');
 const path = require('path');
-const morgan = require('morgan');
+
+
+const { LSC_APP_MONGODB_HOST } = process.env;
 
 //Inicializaciones
 const app = express();
@@ -22,6 +28,19 @@ app.set('view engine', 'hbs')
 app.use(morgan('dev'));
 app.use(express.urlencoded({extended: false})); //interpreta los datos enviados desde un html convirtiéndolos en un objeto
 app.use(express.json());
+
+
+const sessionStore = MongoStore.create({
+    mongoUrl: LSC_APP_MONGODB_HOST,
+    mongooseConnection: mongoose.connection,
+    dbName: 'LSC-app'
+});
+app.use(session({
+    secret: 'my secret key',
+    resave: false,
+    saveUninitialized: sessionStore,
+}));
+
 //Variables globales
 
 

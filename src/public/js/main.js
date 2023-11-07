@@ -6,7 +6,6 @@ console.log(document.referrer);
 const menu = document.getElementById("menu_Home");
 menu?.addEventListener('click', function () {
   document.getElementById('sidebar_Home').classList.toggle('active');
-
 })
 
 

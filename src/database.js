@@ -12,3 +12,4 @@ const MONGODB_URI = LSC_APP_MONGODB_HOST;
         console.error(error);
     }
 })();
+

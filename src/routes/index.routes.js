@@ -1,11 +1,14 @@
 const { Router } = require('express');
+
 const router = Router();
 
-const { renderHome, renderServicios, renderExamenes, 
+const { renderHome, renderClave, renderServicios, renderExamenes, 
     renderCertificados, renderDerechos, renderConstancias, 
     renderOtros, renderEncuesta, createNewUser, userSelection, 
     renderResumen, resumenSolicitud, procesarEncuesta,
 } = require('../controllers/index.controllers');
+
+const { verificarSesion } = require('../helpers/Auth');
 
 
 //  Home  //
@@ -13,20 +16,24 @@ router.get('/', renderHome);
 
 router.post('/Registrar-usuario', createNewUser);
 
+//  Cambiar clave  //
+
+router.get('/Clave', renderClave);
+
 //  Render servicios  //
-router.get('/Servicios', renderServicios);
+router.get('/Servicios', verificarSesion, renderServicios);
 
 //  Render servicios específicos  //
 
-router.get('/Examenes', renderExamenes);
+router.get('/Examenes', verificarSesion, renderExamenes);
 
-router.get('/Certificados', renderCertificados);
+router.get('/Certificados', verificarSesion, renderCertificados);
 
-router.get('/Derechos', renderDerechos);
+router.get('/Derechos', verificarSesion, renderDerechos);
 
-router.get('/Constancias', renderConstancias);
+router.get('/Constancias', verificarSesion, renderConstancias);
 
-router.get('/Otros', renderOtros);
+router.get('/Otros', verificarSesion, renderOtros);
 
 //  Procesar selección hecha por usuario  //
 
@@ -34,18 +41,19 @@ router.post('/User-selection', userSelection);
 
 //  Obtener la solicitud completa  //
 
-router.get('/Resumen-solicitud', resumenSolicitud);
+router.get('/Resumen-solicitud', verificarSesion, resumenSolicitud);
 
 //  Render resumen  //
 
-router.get('/Resumen', renderResumen);
+router.get('/Resumen', verificarSesion, renderResumen);
 
 //  Render encuesta  //
 
-router.get('/Encuesta', renderEncuesta);
+router.get('/Encuesta', verificarSesion, renderEncuesta);
 
 //  Procesar encuesta en BD  //;
 
 router.post('/Procesar-encuesta', procesarEncuesta);
+
 
 module.exports = router;

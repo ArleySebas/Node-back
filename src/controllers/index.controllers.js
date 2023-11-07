@@ -1,23 +1,36 @@
-const indexCtrl = {};
 const Formulario = require('../models/Formulario');
-const usuarioActual = [];
+const { enviarMail } = require('../helpers/Enviar-emails');
 
+
+const indexCtrl = {};
+const usuarios = {};
 //  Home  //
 
 indexCtrl.renderHome = (req, res) => {
     res.render('home');
 };
 
+
+//  Cambiar clave  //
+
+indexCtrl.renderClave = (req, res) => {
+    res.render('clave');
+}
+
+
 //  Nuevo usuario registrado  //
 
 indexCtrl.createNewUser = async (req, res) => {
+
     const { nombre, documento, programa } = req.body;
+
     const newFormulario = new Formulario({nombre, documento, programa});
-    const savedFormulario = await newFormulario.save(); //const newFormulario = await Formulario.find().lean(); //para cargar todos los datos
-    const newFormularioId = savedFormulario._id;
-    console.log('este es el id',newFormularioId);
-    usuarioActual.push(newFormularioId);
-    console.log('usuario actual', usuarioActual);
+
+    const savedFormulario = await newFormulario.save(); //const newFormulzario = await Formulario.
+
+    const usuario = savedFormulario._id; 
+    req.session.usuarioId = usuario;
+
     res.redirect('/Servicios');
 }
 
@@ -59,25 +72,32 @@ indexCtrl.renderOtros = (req, res) => {
 //  Procesar selección hecha por usuario  //
 
 indexCtrl.userSelection = async (req, res) => {
+   
     const { servicio } = req.body;
-    console.log('servicio solicitado',servicio);
+
     const date = new Date();
     const fechaActual = date.toISOString().split('T')[0];
     const horaActual = date.toTimeString().split(' ')[0];
     const fechaYhora = `fecha ${fechaActual} y hora ${horaActual}`;
 
-    const newSelection = await Formulario.findOne().sort({_id:-1}).limit(1);
+
+    const newSelection = await Formulario.findById(req.session.usuarioId);
+
     newSelection.servicio = servicio;
     newSelection.fechaYhora = fechaYhora;
     await newSelection.save();
-    console.log('guardado',newSelection);
+
+    const subject = `LSC admisiones solicitud ${newSelection.fechaYhora}`;
+    const text = `El estudiante: ${newSelection.nombre}, con documento/carné: ${newSelection.documento}, en el programa: ${newSelection.programa}, hace una solicitud de --- ${newSelection.servicio} ---`;
+    enviarMail(subject, text);
+
     res.json({resumen_url:'/Resumen'});
 }
 
 //  Obtener la solicitud completa  //
 
 indexCtrl.resumenSolicitud = async (req, res) => {
-    const Resumen = await Formulario.findOne().sort({_id:-1}).limit(1);
+    const Resumen = await Formulario.findById(req.session.usuarioId);
     res.json({Resumen});
 }
 
