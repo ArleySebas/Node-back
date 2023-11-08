@@ -12,7 +12,7 @@ const { verificarSesion } = require('../helpers/Auth');
 
 
 //  Home  //
-router.get('/', renderHome);
+router.get('https://proyecto-node-server.vercel.app/', renderHome);
 
 router.post('/Registrar-usuario', createNewUser);
 
