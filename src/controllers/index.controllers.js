@@ -118,13 +118,14 @@ indexCtrl.renderEncuesta = (req, res) => {
 indexCtrl.procesarEncuesta = async (req, res) => {
     const { 0:encuesta1, 1:encuestaExtra, 2:encuesta2, 3:encuesta3 } = req.body; //desestructuración de objetos
 
-    const newSelection = await Formulario.findOne().sort({_id:-1}).limit(1);
+    const newSelection = await Formulario.findById(req.session.usuarioId);
     newSelection.encuesta1 = encuesta1;
     newSelection.encuestaExtra = encuestaExtra;
     newSelection.encuesta2 = encuesta2;
     newSelection.encuesta3 = encuesta3;
     await newSelection.save();
 
+    req.session.destroy();
     res.json({redireccion_url:'/'});
 }
 

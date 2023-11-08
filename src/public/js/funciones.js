@@ -1,3 +1,22 @@
+////// Detectar inactividad //////
+
+function resetearTiempoInactividad(){
+  clearTimeout(tiempoInactividad);
+  tiempoInactividad = setTimeout(() => {
+    if (currentUrl !== '/'){
+      window.location.href = '/';
+    }
+  }, 5 * 60 * 1000);
+}
+
+document.addEventListener('mousemove', resetearTiempoInactividad);
+document.addEventListener('keydown', resetearTiempoInactividad);
+document.addEventListener('click', resetearTiempoInactividad);
+
+document.addEventListener('touchstart', resetearTiempoInactividad);
+document.addEventListener('touchend', resetearTiempoInactividad);
+
+
 //back_Res
 const backButtonResumen = document.getElementById('back_Res');
 backButtonResumen?.addEventListener('click', evento => {

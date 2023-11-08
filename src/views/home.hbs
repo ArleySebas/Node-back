@@ -23,7 +23,7 @@
                     <img class="listimg-home-img" src="img/Nombres_y_Apellidos.webp" alt="Nombres y apellidos">
                 </a>
 
-                <input class="input-home" type="text" name="nombre" placeholder="Nombre completo" minlength="4" required>
+                <input class="input-home" type="text" name="nombre" pattern="^[A-Za-záéíóúüñÁÉÍÓÚÜÑ]+(?:\s[A-Za-záéíóúüñÁÉÍÓÚÜÑ]+)*$" title="Solo letras sin caracteres especiales, números o espacios extra"  minlength="3" maxlength="50" placeholder="Nombre completo" required>
 
 
                 <a class="imglist-home">
@@ -31,7 +31,7 @@
                 </a>
 
                 <input class="input-home" type="number" name="documento" placeholder="Documento / cédula / Carné"
-                    min="10000000" max="9999999999" required>
+                    min="10000000" max="9999999999" minlength="8" maxlength="10" required>
 
 
                 <a class="imglist-home">
@@ -39,13 +39,14 @@
                 </a>
 
                 
-                <input class="input-home" type="text" name="programa" placeholder="Programa académico" minlength="4" required>
+                <input class="input-home" type="text" name="programa" pattern="^[A-Za-záéíóúüñÁÉÍÓÚÜÑ]+(?:\s[A-Za-záéíóúüñÁÉÍÓÚÜÑ]+)?(?:\s[A-Za-záéíóúüñÁÉÍÓÚÜÑ]+)?$" title="Solo letras sin caracteres especiales, números o espacios extra"  minlength="3" maxlength="70" placeholder="Programa académico" required>
 
 
-
+                <p class="p-continuar">Continuar</p>
                 <button class="btn-home">
                     <img class="listimg-home-btn-home" src="img/Boton_Continuar.webp" alt="Botón continuar">
                 </button>
+                
             </form>
         </div>
     </label>

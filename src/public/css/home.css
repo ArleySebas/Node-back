@@ -125,15 +125,13 @@
 }
 
 .label-element_home .front_home img{
-    /* width: 80%;
-    height: 80%; */
-    width: 50vmin;
-    height: 40vmin;
+    width: clamp(30rem, 25vw + .5rem, 100rem);
+    height: clamp(30rem, 25vw + .5rem, 100rem);
     object-fit: cover;
 }
 
 .label-element_home .front_home p{
-    font-size: 8rem;
+    font-size: clamp(8rem, 5vw + .5rem, 18rem);
 }
 
 .label-element_home .back_home{
@@ -155,13 +153,12 @@
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1rem;
     align-items: center;
     justify-content: center;
     text-align: center;
     align-content: center;
     position: relative;
-
 }
 
 
@@ -180,17 +177,20 @@
  
 }
 
+.p-continuar{
+    font-size: clamp(2rem, 2vw + .5rem, 4rem);
+}
 
-.listimg-home-img{
-    width: 15vmin;
-    height: 15vmin;
+.back_home .listimg-home-img{
+    width: clamp(11rem, 8vw + .5rem, 50rem);
+    height: clamp(11rem, 8vw + .5rem, 50rem);
     object-fit: cover;
     box-shadow: 0.1rem 0.1rem 1.9rem black;
 }
 
 .btn-home{
-    width: 12vmin;
-    height: 12vmin;
+    width: clamp(11rem, 8vw + .5rem, 22rem);
+    height: clamp(11rem, 8vw + .5rem, 22rem);
     background-color: #0f0c29;
 
 
@@ -225,8 +225,8 @@
 }
 
 .listimg-home-btn-home{
-    width: 10.5vmin;
-    height: 10.5vmin;
+    width: clamp(9.5rem, 7.5vw + .5rem, 20.5rem);
+    height: clamp(9.5rem, 7.5vw + .5rem, 20.5rem);
     box-shadow: 0.1rem 0.1rem 0.5rem black;
     border-radius: 1rem;
     z-index: 0;
@@ -239,4 +239,11 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+
+@media (max-height: 50rem){
+    .container_Home{
+        height: 100%;
+    }
 }

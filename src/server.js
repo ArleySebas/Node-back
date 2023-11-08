@@ -39,6 +39,9 @@ app.use(session({
     secret: 'my secret key',
     resave: false,
     saveUninitialized: sessionStore,
+    cookie: {
+        maxAge: 5 * 60 * 1000,
+    }
 }));
 
 //Variables globales

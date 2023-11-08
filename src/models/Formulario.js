@@ -2,7 +2,7 @@ const {Schema, model} = require('mongoose');
 
 const formularioSchema = new Schema({
     nombre: {type: String, maxlength: 50, default: null},
-    documento: {type: Number, default: null},
+    documento: {type: Number, maxlength: 11,default: null},
     programa: {type:String, maxlength: 70, default: null},
     servicio: {type: String, maxlength: 70, default: null},
     encuesta1: {type: String, maxlength: 7, default: null},

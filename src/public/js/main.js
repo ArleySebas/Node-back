@@ -1,6 +1,10 @@
 //  Función que dice el URL actual en el que me encuentro  //
 const currentUrl = window.location.pathname;
+let tiempoInactividad;
 console.log(document.referrer);
+
+resetearTiempoInactividad();
+
 //////// Botón de menú ////////
 
 const menu = document.getElementById("menu_Home");
