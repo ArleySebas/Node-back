@@ -1,54 +1,55 @@
-<header class="navbar_Home">
-    <img class="logo_Home" src="img/ITM3.png" alt="ITM logo">
-    <div id="sidebar_Home">
-        <a href="/Clave" class="boton_clave">Cambiar correo</a>
-    </div>
-    <img id="menu_Home" src="img/menu2.png" alt="Menu">
-    
-</header>
+<section class="section-home">
 
 
-<main class="container_Home">
+    <header class="navbar_Home">
+        <img class="logo_Home" src="img/ITM3.png" alt="ITM logo">
+        {{!-- <div id="sidebar_Home">
+            <a href="/Clave" class="boton_clave">Cambiar correo</a>
+        </div> --}}
+        {{!-- <img id="menu_Home" src="img/menu2.png" alt="Menu"> --}}
 
-    
-    <label for="rating4" class="label-element_home">
-        <input type="checkbox" id="rating4" name="rating4">
-        <div class="front_home">
-            <p>Bienvenido</p>
-            <img class="listimg-home-img" src="img/Bienvenido.webp" alt="Bienvenido">
-        </div>
-        <div class="back_home">
-            <form class="formulario" action="/Registrar-usuario/" method="POST" id="miFormulario">
-                <a class="imglist-home">
+    </header>
+
+
+    <main class="container_Home">
+
+
+        <label for="rating4" class="label-element_home">
+            <input type="checkbox" id="rating4" name="rating4">
+            <div class="front_home">
+                <p>Bienvenido</p>
+                <img class="listimg-home-img" src="img/Bienvenido.webp" alt="Bienvenido">
+            </div>
+            <div class="back_home">
+                <form class="formulario" action="/Registrar-usuario/" method="POST" id="miFormulario">
+
                     <img class="listimg-home-img" src="img/Nombres_y_Apellidos.webp" alt="Nombres y apellidos">
-                </a>
 
-                <input class="input-home" type="text" name="nombre" pattern="^[A-Za-záéíóúüñÁÉÍÓÚÜÑ]+(?:\s[A-Za-záéíóúüñÁÉÍÓÚÜÑ]+)*$" title="Solo letras sin caracteres especiales, números o espacios extra"  minlength="3" maxlength="50" placeholder="Nombre completo" required>
+                    <input class="input-home" type="text" name="nombre"
+                        pattern="^[A-Za-záéíóúüñÁÉÍÓÚÜÑ]+(?:\s[A-Za-záéíóúüñÁÉÍÓÚÜÑ]+)*$"
+                        title="Solo letras sin caracteres especiales, números o espacios extra" minlength="3"
+                        maxlength="50" placeholder="Nombre completo" required>
 
-
-                <a class="imglist-home">
                     <img class="listimg-home-img" src="img/Documento_Cedula_Carnet.webp" alt="Documeno, cédula o Carné">
-                </a>
 
-                <input class="input-home" type="number" name="documento" placeholder="Documento / cédula / Carné"
-                    min="10000000" max="9999999999" minlength="8" maxlength="10" required>
+                    <input class="input-home" type="number" name="documento" placeholder="Documento / cédula / Carné"
+                        min="10000000" max="9999999999" minlength="8" maxlength="10" required>
 
-
-                <a class="imglist-home">
                     <img class="listimg-home-img" src="img/Programa_Academico.webp" alt="Programa académico">
-                </a>
 
-                
-                <input class="input-home" type="text" name="programa" pattern="^[A-Za-záéíóúüñÁÉÍÓÚÜÑ]+(?:\s[A-Za-záéíóúüñÁÉÍÓÚÜÑ]+)?(?:\s[A-Za-záéíóúüñÁÉÍÓÚÜÑ]+)?$" title="Solo letras sin caracteres especiales, números o espacios extra"  minlength="3" maxlength="70" placeholder="Programa académico" required>
+                    <input class="input-home" type="text" name="programa"
+                        pattern="^[A-Za-záéíóúüñÁÉÍÓÚÜÑ]+(?:\s[A-Za-záéíóúüñÁÉÍÓÚÜÑ]+)?(?:\s[A-Za-záéíóúüñÁÉÍÓÚÜÑ]+)?$"
+                        title="Solo letras sin caracteres especiales, números o espacios extra" minlength="3"
+                        maxlength="70" placeholder="Programa académico" required>
 
+                    <p class="p-continuar">Continuar</p>
+                    <button class="btn-home">
+                        <img class="listimg-home-btn-home" src="img/Boton_Continuar.webp" alt="Botón continuar">
+                    </button>
 
-                <p class="p-continuar">Continuar</p>
-                <button class="btn-home">
-                    <img class="listimg-home-btn-home" src="img/Boton_Continuar.webp" alt="Botón continuar">
-                </button>
-                
-            </form>
-        </div>
-    </label>
+                </form>
+            </div>
+        </label>
 
-</main>
+    </main>
+</section>
