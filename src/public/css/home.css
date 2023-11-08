@@ -241,9 +241,8 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
-
 @media (max-height: 40rem){
     .container_Home{
-        height: 100%;
+        height: auto;
     }
 }
