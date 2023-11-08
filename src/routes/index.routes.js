@@ -12,7 +12,7 @@ const { verificarSesion } = require('../helpers/Auth');
 
 
 //  Home  //
-router.get('https://proyecto-node-livid.vercel.app/', renderHome);
+router.get('https://proyecto-node-livid.vercel.app/Home', renderHome);
 
 router.post('/Registrar-usuario', createNewUser);
 
