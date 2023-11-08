@@ -251,6 +251,6 @@ input::-webkit-inner-spin-button {
 
 @media (max-height: 20rem){
     .section-home{    
-        height: 150%;
+        height: 130%;
     }
 }
