@@ -375,4 +375,4 @@ if (urlsPaginas.includes(miurl)) {
     const redirigir = '/Encuesta';
     window.location.href = redirigir
   }, 10000);
-}
+};
