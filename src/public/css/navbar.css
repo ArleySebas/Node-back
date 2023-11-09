@@ -48,3 +48,11 @@
         font-size: clamp(5rem, 5vw + .5rem, 9rem);
     }
 }
+
+@media (max-height: 40rem){
+    .barra{
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+}
