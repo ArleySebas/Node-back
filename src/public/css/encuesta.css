@@ -225,6 +225,7 @@
 .container_Encuesta .calificacion2 .encuesta-img{
     width: 50%;
     height: 50%;
+    cursor: pointer;
 }
 
 .container_Encuesta .calificacion2 .encuesta-img.active{

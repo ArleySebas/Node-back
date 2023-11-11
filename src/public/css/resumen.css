@@ -97,6 +97,22 @@
   height: 40vmin;
 }
 
+.temporizador_Res{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  padding: 0rem 20%;
+
+  text-decoration: none;
+  color: black;
+}
+
+#temporizador{
+  font-size: 6vmin;
+}
+
 .img-arrow_forward_Res{
   min-width: 1%;
   max-width: 100%;

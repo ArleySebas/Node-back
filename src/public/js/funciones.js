@@ -1,4 +1,5 @@
 ////// Detectar inactividad //////
+let tiempoInactividad;
 
 function resetearTiempoInactividad(){
   clearTimeout(tiempoInactividad);
@@ -6,7 +7,7 @@ function resetearTiempoInactividad(){
     if (currentUrl !== '/'){
       window.location.href = '/';
     }
-  }, 5 * 60 * 1000);
+  }, 1000 * 60 * 5);
 }
 
 document.addEventListener('mousemove', resetearTiempoInactividad);
@@ -115,7 +116,7 @@ class Options {
 
 
 
-/////// enviar a django y registrar en base de datos la selección del usuario //////////
+/////// enviar a node y registrar en base de datos la selección del usuario //////////
 
 function metodoPOST(imagenId) {
   const allowedIds = ['Grado_Pri', 'Grado_Col',
@@ -126,7 +127,6 @@ function metodoPOST(imagenId) {
   ];
 
   if (!allowedIds.includes(imagenId)) {
-    console.log("metodo: no permitido");
     return
   }
   const imagen = document.getElementById(imagenId);
@@ -326,12 +326,12 @@ function showThankYouMessage() {
 }
 
 
-const urlsPaginas = ['/Resumen'];
+const urlResumen = ['/Resumen'];
 
 let guardarInfo = [];
 const miurl = window.location.pathname;
 
-if (urlsPaginas.includes(miurl)) {
+if (urlResumen.includes(miurl)) {
 
   document.addEventListener('DOMContentLoaded', async function () {
     const loader = document.getElementById('loader');
@@ -345,7 +345,6 @@ if (urlsPaginas.includes(miurl)) {
       }
 
       const data = await response.json();
-      console.log(data.Resumen);
       loader.style.display = 'none';
       guardarInfo.push(data.Resumen);
       const RespuestaResumen = data.Resumen;
@@ -369,11 +368,42 @@ if (urlsPaginas.includes(miurl)) {
   });
 }
 
+// function iniciarTemporizador() {
+//   let tiempoRestante = 10;
 
-if (urlsPaginas.includes(miurl)) {
-  setTimeout(function () {
-    const redirigir = '/Encuesta';
-    window.location.href = redirigir
-  }, 10000);
-};
+//   const intervalo = setInterval(() => {
+//     document.getElementById('temporizador').textContent = tiempoRestante;
+//     tiempoRestante--;
+
+//     if(tiempoRestante<0){
+//       clearInterval(intervalo);
+//     }
+//   })
+// }
+
+
+
+
+// if (urlResumen.includes(miurl)) {
+//   setTimeout(function () {
+//     const redirigir = '/Encuesta';
+//     window.location.href = redirigir
+//   }, 10000);
+// };
 //
+
+
+if (urlResumen.includes(miurl)) {
+  let tiempoRestante = 10;
+  const temporizadorElement = document.getElementById('temporizador');
+
+  const intervalo = setInterval(() =>{
+    temporizadorElement.textContent = tiempoRestante;
+    tiempoRestante--;
+    if (tiempoRestante < 1) {
+      clearInterval(intervalo);
+      const redirigir = '/Encuesta';
+      window.location.href = redirigir;
+    }
+  }, 1000);
+}

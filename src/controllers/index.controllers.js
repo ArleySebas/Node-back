@@ -61,7 +61,7 @@ indexCtrl.renderDerechos = (req, res) => {
 
 indexCtrl.renderConstancias = (req, res) => {
     const mostrar = {mostrar_navbar:true, mostrar_arrowBack_redirectServicios:true};
-    res.render('derechos', mostrar);
+    res.render('constancias', mostrar);
 };
 
 indexCtrl.renderOtros = (req, res) => {
@@ -76,10 +76,11 @@ indexCtrl.userSelection = async (req, res) => {
     const { servicio } = req.body;
 
     const date = new Date();
-    const fechaActual = date.toISOString().split('T')[0];
-    const horaActual = date.toTimeString().split(' ')[0];
-    const fechaYhora = `fecha ${fechaActual} y hora ${horaActual}`;
+    const options = { timeZone: 'America/Bogota', 'hour12': false };
 
+    const fechaActual = date.toLocaleString('es-CO', options).split(',')[0];
+    const horaActual = date.toLocaleString('es-CO', options).split(',')[1];
+    const fechaYhora = `hora ${horaActual} y fecha ${fechaActual}`;
 
     const newSelection = await Formulario.findById(req.session.usuarioId);
 
