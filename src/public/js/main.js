@@ -1,37 +1,16 @@
 //  Función que dice el URL actual en el que me encuentro  //
 const currentUrl = window.location.pathname;
 
-//////// Botón de menú ////////
+document.addEventListener('mousemove', resetearTiempoInactividad);
+document.addEventListener('keydown', resetearTiempoInactividad);
+document.addEventListener('click', resetearTiempoInactividad);
 
-// const menu = document.getElementById("menu_Home");
-// menu?.addEventListener('click', function () {
-//   document.getElementById('sidebar_Home').classList.toggle('active');
-// })
-
-
-// const formulario = document.getElementById('miFormulario');
-// formulario?.addEventListener('submit', async (event) => {
-//     event.preventDefault();
-//     const formData = new FormData(formulario);
-//     try {
-//         const response = await fetch(formulario.action, {
-//           method: 'POST',
-//           body: formData,
-//         });
-//         if (response.ok) {
-//             const data = await response.json();
-//             console.log('response', data)
-//             window.location.href = data.redirect_url;
-//         }else{
-//             console.error('Error en la solicitud POST');
-//         }
-//     }catch (error) {
-//         console.error('Error en la solicitud:', error);
-//       }
-// });
+document.addEventListener('touchstart', resetearTiempoInactividad);
+document.addEventListener('touchend', resetearTiempoInactividad);
 
 
 ////////// Registrar usuario //////////
+
 const formulario_clave = document.getElementById('formulario_Clave1');
 formulario_clave?.addEventListener('submit', function (e) {
   e.preventDefault();

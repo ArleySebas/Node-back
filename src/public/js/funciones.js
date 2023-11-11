@@ -10,12 +10,6 @@ function resetearTiempoInactividad(){
   }, 1000 * 60 * 5);
 }
 
-document.addEventListener('mousemove', resetearTiempoInactividad);
-document.addEventListener('keydown', resetearTiempoInactividad);
-document.addEventListener('click', resetearTiempoInactividad);
-
-document.addEventListener('touchstart', resetearTiempoInactividad);
-document.addEventListener('touchend', resetearTiempoInactividad);
 
 
 //back_Res
@@ -367,31 +361,6 @@ if (urlResumen.includes(miurl)) {
     }
   });
 }
-
-// function iniciarTemporizador() {
-//   let tiempoRestante = 10;
-
-//   const intervalo = setInterval(() => {
-//     document.getElementById('temporizador').textContent = tiempoRestante;
-//     tiempoRestante--;
-
-//     if(tiempoRestante<0){
-//       clearInterval(intervalo);
-//     }
-//   })
-// }
-
-
-
-
-// if (urlResumen.includes(miurl)) {
-//   setTimeout(function () {
-//     const redirigir = '/Encuesta';
-//     window.location.href = redirigir
-//   }, 10000);
-// };
-//
-
 
 if (urlResumen.includes(miurl)) {
   let tiempoRestante = 10;
