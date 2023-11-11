@@ -1,18 +1,22 @@
 const nodemailer = require('nodemailer');
+const { EMAIL, PASSWORD } = process.env;
 const helpers = {};
+
+const EMAIL_USER = EMAIL;
+const PASSWORD_USER = PASSWORD;
 
 helpers.enviarMail = async (subject, text) => {
     const config = {
         host:'smtp.gmail.com',
         port:587,
         auth:{
-            user: 'arleysebas123@gmail.com',
-            pass: 'ompp xyfw onkz wtbh'
+            user: EMAIL_USER,
+            pass: PASSWORD_USER
         }
     }
     const mensaje = {
-        from : 'arleysebas123@gmail.com',
-        to : 'arleysebas123@gmail.com',
+        from : EMAIL_USER,
+        to : EMAIL_USER,
         subject,
         text
     }
