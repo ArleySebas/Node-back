@@ -4,6 +4,8 @@ const { enviarMail } = require('../helpers/Enviar-emails');
 
 const indexCtrl = {};
 const usuarios = {};
+
+
 //  Home  //
 
 indexCtrl.renderHome = (req, res) => {
@@ -30,6 +32,7 @@ indexCtrl.createNewUser = async (req, res) => {
 
     const usuario = savedFormulario._id; 
     req.session.usuarioId = usuario;
+    req.session.tiempoSesion = new Date().getTime();
 
     res.redirect('/Servicios');
 }
@@ -76,16 +79,18 @@ indexCtrl.userSelection = async (req, res) => {
     const { servicio } = req.body;
 
     const date = new Date();
-    const options = { timeZone: 'America/Bogota', 'hour12': false };
+    const tiempoFinal = date.getTime();
+    const tiempoSolicitud = (tiempoFinal - req.session.tiempoSesion) / 1000;
 
+    const options = { timeZone: 'America/Bogota', 'hour12': false };
     const fechaActual = date.toLocaleString('es-CO', options).split(',')[0];
     const horaActual = date.toLocaleString('es-CO', options).split(',')[1];
     const fechaYhora = `hora ${horaActual} y fecha ${fechaActual}`;
 
     const newSelection = await Formulario.findById(req.session.usuarioId);
-
     newSelection.servicio = servicio;
     newSelection.fechaYhora = fechaYhora;
+    newSelection.tiempoSolicitud = tiempoSolicitud;
     await newSelection.save();
 
     const subject = `LSC admisiones solicitud ${newSelection.fechaYhora}`;
@@ -119,13 +124,19 @@ indexCtrl.renderEncuesta = (req, res) => {
 indexCtrl.procesarEncuesta = async (req, res) => {
     const { 0:encuesta1, 1:encuestaExtra, 2:encuesta2, 3:encuesta3 } = req.body; //desestructuración de objetos
 
+    const date = new Date();
+    const tiempoFinalSesion = date.getTime();
+    const tiempoSesionTotal = (tiempoFinalSesion - req.session.tiempoSesion) / 1000;
+
     const newSelection = await Formulario.findById(req.session.usuarioId);
     newSelection.encuesta1 = encuesta1;
     newSelection.encuestaExtra = encuestaExtra;
     newSelection.encuesta2 = encuesta2;
     newSelection.encuesta3 = encuesta3;
+    newSelection.tiempoSesionTotal = tiempoSesionTotal;
     await newSelection.save();
 
+    delete req.session.tiempoSesion;
     req.session.destroy();
     res.json({redireccion_url:'/'});
 }

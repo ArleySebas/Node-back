@@ -130,7 +130,6 @@ function metodoPOST(imagenId) {
     const data = {
       'servicio': imagen.dataset.value
     };
-    console.log(data);
 
     $.ajax({
       url: '/User-selection',

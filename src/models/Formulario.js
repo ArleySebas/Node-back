@@ -10,6 +10,8 @@ const formularioSchema = new Schema({
     encuesta2: {type: String, maxlength: 25, default: null},
     encuesta3: {type: String, maxlength: 3, default: null},
     fechaYhora: {type: String, maxlength: 50, default: null},
+    tiempoSolicitud: {type: String, maxlength: 30, default: null},
+    tiempoSesionTotal: {type: String, maxlength: 30, default: null},
 }, {
     timestamps: true,
 });
