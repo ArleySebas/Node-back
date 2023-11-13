@@ -15,7 +15,7 @@ const formulario_clave = document.getElementById('formulario_Clave1');
 formulario_clave?.addEventListener('submit', function (e) {
   e.preventDefault();
 
-  const formData = new FormData(this)
+  const formData = new FormData(this);
 
   fetch('/registrar_usuario/', {
     method:'POST',
