@@ -17,11 +17,14 @@
     background-color: #001D4E;
 
     overflow-x: hidden;
+
+    --tamaño_letra: 9vmin;
 }  
 
 .logo-itm .logo-itm-img{
     width: auto;
-    height: clamp(4rem, 4vw + .5rem, 20rem);
+    /* height: clamp(4rem, 4vw + .5rem, 20rem); */
+    height: 9vmin;
 }
     
     
@@ -31,7 +34,8 @@
     color: white;
     cursor: pointer;
     #home{
-        font-size: clamp(4rem, 4vw + .5rem, 8rem);
+        /* font-size: clamp(4rem, 4vw + .5rem, 8rem); */
+        font-size: var(--tamaño_letra);
     }
 }
 
@@ -43,10 +47,12 @@
     background: none;
     cursor: pointer;
     #arrow_back{
-        font-size: clamp(4rem, 4vw + .5rem, 9rem);
+        /* font-size: clamp(4rem, 4vw + .5rem, 9rem); */
+        font-size: var(--tamaño_letra);
     }
     #arrow_back_servicios{
-        font-size: clamp(4rem, 4vw + .5rem, 9rem);
+        /* font-size: clamp(4rem, 4vw + .5rem, 9rem); */
+        font-size: var(--tamaño_letra);
     }
 }
 
