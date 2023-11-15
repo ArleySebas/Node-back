@@ -8,15 +8,15 @@
 
     gap: 3rem;
 
-    background: #0f0c29;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #24243ec7, #302b63c5, #0f0c29cb), url("/img/foto.jpg");  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #24243ec5, #302b63c2, #0f0c29c7), url("/img/foto.jpg"); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #0f0c29; 
+    background: -webkit-linear-gradient(to right, #24243ec7, #302b63c5, #0f0c29cb), url("/img/foto.jpg");  
+    background: linear-gradient(to right, #24243ec5, #302b63c2, #0f0c29c7), url("/img/foto.jpg"); 
     background-attachment: fixed;
     background-position: center;
     background-size: 100% 100%;   
     background-repeat: no-repeat; 
 
-    height: 115dvb;
+    height: 100dvb;
     width: 100%;
     overflow-x: hidden;
 }
@@ -35,58 +35,6 @@
     max-width: 50%;
     object-fit:cover;
 }
-
-
-/* #sidebar_Home{
-    right: -20rem;
-    top: 0;
-    padding: 2%;
-    height: 100dvb;
-    background-color: rgba(0,0,0,0.4);
-    overflow-x: hidden;
-    transition: 0.3s;
-    z-index: 1;
-    
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    text-align: center;
-    flex-direction: row;
-
-} */
-
-/* #sidebar_Home.active p{
-    color: white;
-    font-size: clamp(3rem, 1vw + .5rem, 7rem);
-} */
-
-/* #sidebar_Home .boton_clave{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 2% 8%;
-    background-color: white;
-    color: black;
-    text-decoration: none;
-    border: none;
-    border-radius: 5px; 
-    width: clamp(10rem, 4vw + 0.5rem, 80rem);
-    height: auto;
-    font-size: clamp(2rem, 0.8vw + 0.5rem, 5rem);
-    cursor: pointer;
-} */
-
-/* #menu_Home{
-    width: clamp(5rem, 2vw + .5rem, 15rem);
-    cursor: pointer;
-    z-index: 2;
-} */
-
-/* #sidebar_Home.active{
-    height: 100%;
-    width: 50rem;
-} */
-
 
 /*////////////// Container  //////////////*/
 
@@ -128,6 +76,7 @@
 }
 
 .front_home{
+    align-self: start;
     transform: perspective(100rem) rotateY(0deg);
 }
 
@@ -135,6 +84,7 @@
     width: 50vmin;
     height: 50vmin;
     object-fit: cover;
+    cursor: pointer;
 }
 
 .front_home p{
@@ -176,7 +126,7 @@
     text-align: center;
     align-items: center;
     width: 70vmin;
-    font-size: 3vmin;
+    font-size: 4vmin;
     
     box-shadow: 0.1rem 0.1rem 1.9rem black;
     border: 0.1rem solid rgba(255,255,255,0.25);
@@ -189,15 +139,15 @@
 }
 
 .back_home .listimg-home-img{
-    width: 30%;
-    height: 30%;
+    width: 40%;
+    height: 40%;
     object-fit: cover;
     box-shadow: 0.1rem 0.1rem 1.9rem black;
 }
 
 .btn-home{
-    width: 12vmin;
-    height: 12vmin;
+    width: 14vmin;
+    height: 14vmin;
 
     background-color: #0f0c29;
 
@@ -233,8 +183,8 @@
 }
 
 .listimg-home-btn-home{
-    width: 11vmin;
-    height: 11vmin;
+    width: 13vmin;
+    height: 13vmin;
     box-shadow: 0.1rem 0.1rem 0.5rem black;
     border-radius: 1rem;
     z-index: 0;

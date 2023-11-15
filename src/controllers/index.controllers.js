@@ -85,7 +85,7 @@ indexCtrl.userSelection = async (req, res) => {
     const options = { timeZone: 'America/Bogota', 'hour12': false };
     const fechaActual = date.toLocaleString('es-CO', options).split(',')[0];
     const horaActual = date.toLocaleString('es-CO', options).split(',')[1];
-    const fechaYhora = `hora ${horaActual} y fecha ${fechaActual}`;
+    const fechaYhora = `${horaActual} ${fechaActual}`;
 
     const newSelection = await Formulario.findById(req.session.usuarioId);
     newSelection.servicio = servicio;
@@ -93,7 +93,7 @@ indexCtrl.userSelection = async (req, res) => {
     newSelection.tiempoSolicitud = tiempoSolicitud;
     await newSelection.save();
 
-    const subject = `LSC admisiones solicitud ${newSelection.fechaYhora}`;
+    const subject = `LSC admisiones solicitud hora ${horaActual} y fecha ${fechaActual}`;
     const text = `El estudiante: ${newSelection.nombre}, con documento/carné: ${newSelection.documento}, en el programa: ${newSelection.programa}, hace una solicitud de --- ${newSelection.servicio} ---`;
     enviarMail(subject, text);
 
