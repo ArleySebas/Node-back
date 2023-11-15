@@ -69,14 +69,14 @@
     cursor: pointer;
 }
 
-@media (900px <= height <= 1300px){
+/* @media (900px <= height <= 1300px){
     .container_Servicios{
         height: 110dvb;
     }
-}
+} */
 
-@media (height >= 1300px) {
+@media (height >= 900px) {
     .container_Servicios{
-        height: 100dvb;
+        height: 110dvb;
     }
 }
