@@ -67,15 +67,9 @@
     cursor: pointer;
 }
 
-@media (max-height: 600px){
+@media (height < 800px){
     .container_Derechos{
         height: 120dvb;
-    }
-}
-
-@media (max-height: 800px){
-    .container_Derechos{
-        height: 90dvb;
     }
 }
 
