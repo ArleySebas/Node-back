@@ -73,19 +73,7 @@
     }
 }
 
-@media (600px <= height <= 900px){
-    .container_Constancias{
-        height: 90dvb;
-    }
-}
-
-@media (900px <= height <= 1300px){
-    .container_Constancias{
-        height: 100dvb;
-    }
-}
-
-@media (height >= 1300px) {
+@media (height > 600px){
     .container_Constancias{
         height: 100dvb;
     }

@@ -59,7 +59,7 @@
     text-align: center;
     flex-direction: column;
     flex-wrap: wrap;
-    width: clamp(20rem, 40vw + .5rem, 80rem);
+    width: 60vmin;
 }
 
 
@@ -92,9 +92,8 @@
 }
 
 .container_Encuesta .estrellas img{
-    cursor: pointer;
-    width: clamp(3rem, 5vw + .5rem, 30rem);
-    height: clamp(3rem, 5vw + .5rem, 30rem);
+    cursor: pointer;    
+    width: 10vmin;
     padding: 5%;
 }
 
