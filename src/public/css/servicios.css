@@ -75,8 +75,8 @@
     }
 } */
 
-@media (height >= 900px) {
+@media (height >= 800px) {
     .container_Servicios{
-        height: 120dvb;
+        height: 1000dvb;
     }
 }
