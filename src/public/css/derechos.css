@@ -73,19 +73,13 @@
     }
 }
 
-@media (600px <= height <= 900px){
+@media (max-height: 800px){
     .container_Derechos{
         height: 90dvb;
     }
 }
 
-@media (900px <= height <= 1300px){
-    .container_Derechos{
-        height: 100dvb;
-    }
-}
-
-@media (height >= 1300px) {
+@media (height >= 800px) {
     .container_Derechos{
         height: 100dvb;
     }

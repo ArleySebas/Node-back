@@ -69,12 +69,6 @@
     cursor: pointer;
 }
 
-/* @media (900px <= height <= 1300px){
-    .container_Servicios{
-        height: 110dvb;
-    }
-} */
-
 @media (height >= 800px) {
     .container_Servicios{
         height: 100dvb;
