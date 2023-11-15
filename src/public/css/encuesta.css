@@ -24,19 +24,25 @@
 
 .container-ITMimg{
     display: flex;
-    justify-content: start;
-    text-align: start;
+    justify-content: space-between;
+    text-align: center;
+    align-content: center;
+    align-items: center;
 
     margin: 0;
     padding: 0;
 
     width: 100%;
     height: auto;
-    
 }
 
 .encuesta-ITMimg{
     width: 50vmin;
+    cursor: pointer;
+}
+
+.arrow_back_encuesta{
+    width: 12vmin;
 }
 
 .container_Encuesta p{

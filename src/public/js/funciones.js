@@ -7,7 +7,7 @@ function resetearTiempoInactividad(){
     if (currentUrl !== '/'){
       window.location.href = '/';
     }
-  }, 1000 * 60 * 5);
+  }, 1000 * 60 * 5 * 10);
 }
 
 
