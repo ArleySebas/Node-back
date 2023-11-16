@@ -37,6 +37,7 @@ indexCtrl.createNewUser = async (req, res) => {
         req.session.usuarioId = usuario;
         req.session.tiempoSesion = new Date().getTime();
 
+        console.log('sesiones activas',req.session);
         res.redirect('/Servicios');
     } catch (error) {
         console.error(error);
@@ -87,6 +88,8 @@ indexCtrl.userSelection = async (req, res) => {
 
         const { servicio } = req.body;
 
+        console.log('usuarioId', req.session);
+
         const date = new Date();
         const tiempoFinal = date.getTime();
         const tiempoSolicitud = (tiempoFinal - req.session.tiempoSesion) / 1000;
@@ -97,6 +100,7 @@ indexCtrl.userSelection = async (req, res) => {
         const fechaYhora = `${horaActual} ${fechaActual}`;
 
         const newSelection = await Formulario.findById(req.session.usuarioId);
+
         newSelection.servicio = servicio;
         newSelection.fechaYhora = fechaYhora;
         newSelection.tiempoSolicitud = tiempoSolicitud;
@@ -109,6 +113,8 @@ indexCtrl.userSelection = async (req, res) => {
         res.json({resumen_url:'/Resumen'});
 
     } catch (error) {
+        delete req.session.tiempoSesion;
+        req.session.destroy();
         console.error(error);
         res.redirect('/');
     };
@@ -140,18 +146,20 @@ indexCtrl.procesarEncuesta = async (req, res) => {
 
     try {
     
-        const { 0:encuesta1, 1:encuestaExtra, 2:encuesta2, 3:encuesta3 } = req.body; //desestructuración de objetos
+        const { 0:encuesta_1, 1:encuesta_Extra, 2:encuesta_2, 3:encuesta_3 } = req.body; //desestructuración de objetos
 
+        console.log('body', req.body);
+        
         const date = new Date();
         const tiempoFinalSesion = date.getTime();
         const tiempoSesionTotal = (tiempoFinalSesion - req.session.tiempoSesion) / 1000;
 
         const newSelection = await Formulario.findById(req.session.usuarioId);
 
-        newSelection.encuesta1 = encuesta1;
-        newSelection.encuestaExtra = encuestaExtra;
-        newSelection.encuesta2 = encuesta2;
-        newSelection.encuesta3 = encuesta3;
+        newSelection.encuesta1 = encuesta_1;
+        newSelection.encuestaExtra = encuesta_Extra;
+        newSelection.encuesta2 = encuesta_2;
+        newSelection.encuesta3 = encuesta_3;
         newSelection.tiempoSesionTotal = tiempoSesionTotal;
         await newSelection.save();
 
@@ -160,7 +168,9 @@ indexCtrl.procesarEncuesta = async (req, res) => {
         res.json({redireccion_url:'/'});
 
     } catch (error) {
-        console.error(error)
+        console.error(error);
+        delete req.session.tiempoSesion;
+        req.session.destroy();
         res.redirect('/');
     }
 };
