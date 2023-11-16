@@ -8,6 +8,13 @@ document.addEventListener('click', resetearTiempoInactividad);
 document.addEventListener('touchstart', resetearTiempoInactividad);
 document.addEventListener('touchend', resetearTiempoInactividad);
 
+if (currentUrl != '/Resumen'){
+  document.addEventListener("DOMContentLoaded", function() {
+    var loader = document.getElementById("loader");
+    loader.style.display = "none";
+  });
+}
+
 
 ////////// Registrar usuario //////////
 

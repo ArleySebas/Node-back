@@ -36,7 +36,7 @@
 #back_Res {
   text-decoration: none;
   color: white;
-  font-size: clamp(5rem, 9vw + .5rem, 25rem);
+  font-size: clamp(5rem, 5vw + .5rem, 25rem);
   cursor: pointer;
 }
 
@@ -56,7 +56,7 @@
 }
 
 .loader {
-  display: flex;
+  /* display: flex; */
   justify-content: center;
   align-items: center;
 
@@ -131,7 +131,7 @@
 }
 
 .img-arrow_forward_Res{
-  width: clamp(5rem, 9vw + .5rem, 25rem);
+  width: clamp(5rem, 5vw + .5rem, 25rem);
   object-fit: cover;
 }
 

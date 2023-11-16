@@ -9,7 +9,8 @@ const usuarios = {};
 //  Home  //
 
 indexCtrl.renderHome = (req, res) => {
-    res.render('home');
+    const loader = {loader: true};
+    res.render('home', loader);
 };
 
 
@@ -41,34 +42,34 @@ indexCtrl.createNewUser = async (req, res) => {
 //  Render Servicios  //
 
 indexCtrl.renderServicios = (req, res) => {
-    const mostrar = {mostrar_navbar:true, mostrar_arrowBack_redirectHome:true}
+    const mostrar = {mostrar_navbar:true, mostrar_arrowBack_redirectHome:true, loader: true}
     res.render('servicios', mostrar);
 };
 
 // Render servicios específicos //
 
 indexCtrl.renderExamenes = (req, res) => {
-    const mostrar = {mostrar_navbar:true, mostrar_arrowBack_redirectServicios:true};
+    const mostrar = {mostrar_navbar:true, mostrar_arrowBack_redirectServicios:true, loader: true};
     res.render('examenes', mostrar);
 };
 
 indexCtrl.renderCertificados = (req, res) =>{
-    const mostrar = {mostrar_navbar:true, mostrar_arrowBack_redirectServicios:true};
+    const mostrar = {mostrar_navbar:true, mostrar_arrowBack_redirectServicios:true, loader: true};
     res.render('certificados', mostrar);
 };
 
 indexCtrl.renderDerechos = (req, res) => {
-    const mostrar = {mostrar_navbar:true, mostrar_arrowBack_redirectServicios:true};
+    const mostrar = {mostrar_navbar:true, mostrar_arrowBack_redirectServicios:true, loader:true};
     res.render('derechos', mostrar);
 }
 
 indexCtrl.renderConstancias = (req, res) => {
-    const mostrar = {mostrar_navbar:true, mostrar_arrowBack_redirectServicios:true};
+    const mostrar = {mostrar_navbar:true, mostrar_arrowBack_redirectServicios:true, loader: true};
     res.render('constancias', mostrar);
 };
 
 indexCtrl.renderOtros = (req, res) => {
-    const mostrar = {mostrar_navbar:true, mostrar_arrowBack_redirectServicios:true};
+    const mostrar = {mostrar_navbar:true, mostrar_arrowBack_redirectServicios:true, loader: true};
     res.render('otros', mostrar);
 };
 
@@ -116,7 +117,8 @@ indexCtrl.renderResumen = (req, res) => {
 //  Render Encuesta  //
 
 indexCtrl.renderEncuesta = (req, res) => {
-    res.render('encuesta');
+    const loader = {loader: true};
+    res.render('encuesta', loader);
 };
 
 //  Procesar encuesta en BD  //

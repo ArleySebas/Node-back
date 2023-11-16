@@ -17,7 +17,7 @@ const backButtonResumen = document.getElementById('back_Res');
 backButtonResumen?.addEventListener('click', evento => {
   
   const paginaAnterior = determinarPaginarAnterior();
-  window.location.href = paginaAnterior;
+  window.history.back() = paginaAnterior;
 });
 
 function determinarPaginarAnterior() {
@@ -318,16 +318,15 @@ function showThankYouMessage() {
   }, 4000);
 }
 
-
 const urlResumen = ['/Resumen'];
 
 let guardarInfo = [];
 const miurl = window.location.pathname;
 
 if (urlResumen.includes(miurl)) {
-
+  
   document.addEventListener('DOMContentLoaded', async function () {
-    const loader = document.getElementById('loader');
+    const loader = document.getElementById('loader_resumen');
     loader.style.display = 'flex';
     let guardarInfo = [];
 
