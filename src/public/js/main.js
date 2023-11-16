@@ -9,7 +9,7 @@ document.addEventListener('touchstart', resetearTiempoInactividad);
 document.addEventListener('touchend', resetearTiempoInactividad);
 
 if (currentUrl != '/Resumen'){
-  document.addEventListener("DOMContentLoaded", function() {
+  window.addEventListener("load", function() {
     var loader = document.getElementById("loader");
     loader.style.display = "none";
   });

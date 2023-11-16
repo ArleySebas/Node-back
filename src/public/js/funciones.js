@@ -172,7 +172,7 @@ class Encuesta {
         this.atributo = this.labels[index].getAttribute(this.atributos);
 
         atributosDict[this.POSITION] = this.atributo;
-
+        console.log(atributosDict)
         if (this.clase == '.star') {
           this.toggleStar(index);
         } else {
