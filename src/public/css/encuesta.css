@@ -4,14 +4,15 @@
     align-items: center;
     text-align: center;
     align-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
 
     width: 100%;
     height: auto;
-    flex-wrap: wrap;
-    flex-direction: column;
-    font-size: clamp(2rem, 1vw + .5rem, 7rem);
     gap: 3rem;
     padding: 5%;
+
+    font-size: clamp(2rem, 1vw + .5rem, 7rem);
 
     background: #0f0c29; 
     background: -webkit-linear-gradient(to right, #24243ec7, #302b63c5, #0f0c29cb), url("/img/foto.jpg");  
@@ -59,6 +60,7 @@
     text-align: center;
     flex-direction: column;
     flex-wrap: wrap;
+
     width: 60vmin;
 }
 
@@ -256,7 +258,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-areas: "A B";
-    /* grid-gap: 1rem; */
+    
     justify-items: center;
     align-items: center;
     place-items: center; 

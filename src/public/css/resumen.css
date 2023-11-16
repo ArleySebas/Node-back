@@ -4,7 +4,9 @@
   "A"
   "B"
   ;
+
   gap: 2%;
+
   background: #8EE6FE;
   background: -moz-linear-gradient(top, #167DDC 0%, #50B8F3 60%, #8EE6FE 100%);
   background: -webkit-linear-gradient(top, #167DDC 0%, #50B8F3 60%, #8EE6FE 100%);
@@ -12,14 +14,16 @@
 }
 
 .header-Resumen {
-  width: 100%;
-  z-index: 2;
   grid-area: A;
+
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
   align-content: center;
   align-items: center;
+
+  width: 100%;
+  z-index: 2;
 }
 
 .img-header_Resumen {
@@ -32,30 +36,37 @@
 #back_Res {
   text-decoration: none;
   color: white;
-  font-size: 11vmin;
+  font-size: clamp(5rem, 9vw + .5rem, 25rem);
   cursor: pointer;
 }
 
+/*//// Loader ////*/
+
 .loader-wrapper {
   position: fixed;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
   display: flex;
   justify-content: center;
   align-items: center;
+
+  width: 100%;
+  height: 100%;
   z-index: 9999;
+
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 .loader {
   display: flex;
   justify-content: center;
   align-items: center;
+
   border: 0.5rem solid #f3f3f3;
   border-top: 0.5rem solid #3498db;
   border-radius: 50%;
-  width: 40vmin;
-  height: 40vmin;
+
+  width: clamp(10rem, 20vw + .5rem, 40rem);
+  height: clamp(10rem, 20vw + .5rem, 40rem);
+
   animation: spin 1s linear infinite;
 }
 
@@ -69,12 +80,16 @@
   }
 }
 
+/*//// Container ////*/
+
 .container_Resumen {
   grid-area: B;
   width: 100%;
+  min-height: 100svh;
+  z-index: 1;
+
   position: relative;
   overflow: hidden;
-  z-index: 1;
 }
 
 .dividir_Res{
@@ -93,8 +108,10 @@
 .img-resumen {
   border-radius: 2rem;
   box-shadow: 0.1rem 0.1rem 0.8rem 0.5rem black;
-  width: 40vmin;
-  height: 40vmin;
+
+  width: clamp(15rem, 25vw + .5rem, 45rem);
+  height: clamp(15rem, 25vw + .5rem, 45rem);
+  object-fit: cover;
 }
 
 .temporizador_Res{
@@ -110,43 +127,47 @@
 }
 
 #temporizador{
-  font-size: 6.5vmin;
+  font-size: clamp(2rem, 4vw + .5rem, 8rem);
 }
 
 .img-arrow_forward_Res{
-  min-width: 1%;
-  max-width: 100%;
+  width: clamp(5rem, 9vw + .5rem, 25rem);
   object-fit: cover;
 }
 
 .dividir_Res span {
   position: relative;
-  display: inline-block;
+  display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
 
-  font-size: 4vmin;
+  max-height: 100%;
+  max-width: 100%;
+
+  font-size: clamp(1rem, 2vw + .5rem, 5rem);
   font-family: cursive;
 
   background-color: #167DDC;
   box-shadow: 0.1rem 0.1rem 0.1rem 0.2rem black;
-  border-radius: 2rem;
-  padding: 1%;
+  border-radius: clamp(0.5rem, 1vw + .5rem, 2rem);
+  padding: 2%;
 }
 
 .dividir_Res span:nth-child(5)::after {
   content: "";
   display: block;
   position: absolute;
+
   left: 50%;
   bottom: 0;
   transform: translateX(-50%);
+  padding-bottom: 0.2rem;
   width: 0;
   height: 1%;
+
   background-color: white;
   animation: lineAnimation 1s infinite;
-  padding-bottom: 0.2rem;
 }
 
 @keyframes lineAnimation {
@@ -169,16 +190,18 @@
 
 .wave {
   position: absolute;
+
   top: 70%;
   width: 300%;
-  height: 100rem;
+  height: 100%;
+  z-index: -1;
+
   background: no-repeat url("/img/wave2.png");
   background-size: 100% 50%;
-  z-index: -1;
 }
 
 .wave.wave1 {
-  animation: animate1 20s alternate infinite;
+  animation: animate1 15s alternate infinite;
   z-index: -1;
   opacity: 0.8;
   animation-delay: 0s;
@@ -186,7 +209,7 @@
 }
 
 .wave.wave2 {
-  animation: animate1 10s alternate-reverse infinite;
+  animation: animate1 5s alternate-reverse infinite;
   z-index: -2;
   opacity: 0.5;
   animation-delay: -5s;
@@ -194,7 +217,7 @@
 }
 
 .wave.wave3 {
-  animation: animate1 20s alternate infinite;
+  animation: animate1 15s alternate infinite;
   z-index: -3;
   opacity: 0.2;
   animation-delay: -2s;
@@ -202,7 +225,7 @@
 }
 
 .wave.wave4 {
-  animation: animate1 5s alternate-reverse infinite;
+  animation: animate1 3s alternate-reverse infinite;
   z-index: -4;
   opacity: 0.7;
   animation-delay: -5s;
@@ -217,11 +240,5 @@
 
   100% {
     background-position-x: clamp(30rem, 80vw + .5rem, 100rem);
-  }
-}
-
-@media (max-height: 40rem){
-  .container_Resumen{
-    height: 110%;
   }
 }
