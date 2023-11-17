@@ -39,9 +39,9 @@
                     <img class="listimg-home-img" src="img/Programa_Academico.webp" alt="Programa académico">
 
                     <input class="input-home" type="text" name="programa"
-                        pattern="^[A-Za-záéíóúüñÁÉÍÓÚÜÑ]+(?:\s[A-Za-záéíóúüñÁÉÍÓÚÜÑ]+)?(?:\s[A-Za-záéíóúüñÁÉÍÓÚÜÑ]+)?$"
+                        pattern="^(?!\s*$)[A-Za-záéíóúüñÁÉÍÓÚÜÑ]+(?:\s[A-Za-záéíóúüñÁÉÍÓÚÜÑ]+)*(?:\s[A-Za-záéíóúüñÁÉÍÓÚÜÑ]+)?$"
                         title="Solo letras sin caracteres especiales, números o espacios extra" minlength="3"
-                        maxlength="70" placeholder="Programa académico" required>
+                        maxlength="150" placeholder="Programa académico" required>
 
                     <p class="p-continuar">Continuar</p>
                     <button class="btn-home">

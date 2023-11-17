@@ -8,6 +8,8 @@ document.addEventListener('click', resetearTiempoInactividad);
 document.addEventListener('touchstart', resetearTiempoInactividad);
 document.addEventListener('touchend', resetearTiempoInactividad);
 
+////////// Función para quitar el loader una vez carga la página ////////// 
+
 if (currentUrl != '/Resumen'){
   window.addEventListener("load", function() {
     var loader = document.getElementById("loader");
