@@ -187,7 +187,7 @@ class Encuesta {
         if (countTrue > 0){
           // calificacionExtra.style.display = 'flex';
           calificacionExtra.classList.add('fade-in');
-          containerEncuesta.style.height = '200svb';
+          containerEncuesta.style.height = '200dvb';
           scrollEncuesta.style.display = 'flex'
 
           
@@ -374,8 +374,8 @@ if (urlResumen.includes(miurl)) {
       nombreSpan3.style.fontFamily = 'sans-serif';
       nombreSpan4.style.fontFamily = 'sans-serif';
 
-      nombreSpan1.textContent = `nombre: ${RespuestaResumen.nombre}`;
-      nombreSpan2.textContent = `documento: ${RespuestaResumen.documento}`;
+      nombreSpan1.textContent = `Nombre: ${RespuestaResumen.nombre}`;
+      nombreSpan2.textContent = `Documento: ${RespuestaResumen.documento}`;
       nombreSpan3.textContent = `Programa académico: ${RespuestaResumen.programa}`;
       nombreSpan4.textContent = `Servicio solicitado: ${RespuestaResumen.servicio}`;
     } catch (error) {
