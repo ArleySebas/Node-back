@@ -172,11 +172,35 @@ class Encuesta {
         this.atributo = this.labels[index].getAttribute(this.atributos);
 
         atributosDict[this.POSITION] = this.atributo;
-        console.log(atributosDict)
+
         if (this.clase == '.star') {
           this.toggleStar(index);
         } else {
           this.toggleOption(label);
+        }
+
+        const countTrue = rate.reduce((acc, currentValue) => {
+          
+          return acc + (currentValue === true ? 1 : 0);
+        }, 0);
+
+        if (countTrue > 0){
+          // calificacionExtra.style.display = 'flex';
+          calificacionExtra.classList.add('fade-in');
+          containerEncuesta.style.height = '200svb';
+          scrollEncuesta.style.display = 'flex'
+
+          
+        }
+        if (countTrue > 1){
+          // calificacion2.style.display = 'flex';
+          calificacion2.classList.add('fade-in');
+          containerEncuesta.style.height = '100%';
+          
+        }
+        if (countTrue > 2){
+          // calificacion3.style.display = 'flex';
+          calificacion3.classList.add('fade-in');
         }
 
       });

@@ -85,6 +85,13 @@ if (currentUrl === '/Certificados'){
 const rate = [false,false,false,false];
 const atributosDict = {};
 
+const containerEncuesta = document?.getElementById('container_encuesta');
+const scrollEncuesta = document?.getElementById('scroll_Encuesta');
+const calificacion1 = document?.getElementById('calificacion1');
+const calificacionExtra = document?.getElementById('calificacionExtra');
+const calificacion2 = document?.getElementById('calificacion2');
+const calificacion3 = document?.getElementById('calificacion3');
+
 /// Encuesta 1 Emojis ///
 
 const emojis = document?.querySelectorAll('.star')

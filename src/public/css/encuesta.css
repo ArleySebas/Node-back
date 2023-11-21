@@ -3,12 +3,11 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    align-content: center;
-    flex-wrap: wrap;
+    align-content: flex-start;
     flex-direction: column;
 
     width: 100%;
-    height: auto;
+    height: 100svb;
     gap: 3rem;
     padding: 5%;
 
@@ -38,34 +37,66 @@
 }
 
 .encuesta-ITMimg{
-    width: 50vmin;
+    width: clamp(10rem, 20vw + .5rem, 40rem);
+    object-fit: cover;
     cursor: pointer;
 }
 
 .arrow_back_encuesta{
-    width: 12vmin;
+    width: clamp(3rem, 5vw + .5rem, 20rem);
+    object-fit: cover;
 }
 
 .container_Encuesta p{
     color: white;
 }
 
+.Encuesta_Preguntas{
+    width: clamp(12rem, 30vw + .5rem, 50rem);
+    object-fit: cover;
+
+    box-shadow: 0 0 1.9rem black;
+}
+
+.scroll_Encuesta{
+    display: none;
+    position: fixed;
+    top: 50%;
+    right: 5%;
+    width: clamp(3rem, 5vw + .5rem, 15rem);
+    object-fit: cover;
+    animation: scroll 2s infinite linear;
+}
+
+@keyframes scroll{
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    50% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+}
 
 /*            Calificacion 1        */
 
-.container_Encuesta .calificacion1{
+.calificacion1{
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     flex-direction: column;
     flex-wrap: wrap;
-
-    width: 60vmin;
+    gap: clamp(1rem, 1vw + .5rem, 5rem);
 }
 
 
-.container_Encuesta .calificacion1 .estrellas{
+.estrellas{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-template-areas: "A B C D E";
@@ -74,8 +105,6 @@
     justify-items: center;
     align-items: center;
     place-items: center; 
-
-
 
     justify-content: center;
     align-items: center;
@@ -93,9 +122,10 @@
     background-color: rgba(255, 255, 255, 0.5);
 }
 
-.container_Encuesta .estrellas img{
+.estrellas img{
     cursor: pointer;    
-    width: 10vmin;
+    width: clamp(3rem, 5vw + .5rem, 12rem);
+    object-fit: cover;
     padding: 5%;
 }
 
@@ -121,21 +151,26 @@
 #feliz_2.active,
 #encanta_2.active{
     animation: activeAnimation 0.3s;
-    filter: drop-shadow(0rem 0rem 1rem #FFCA08);   
+    filter: drop-shadow(0rem 0rem 2rem #FFCA08);   
 }
 
 
 /*            Extra        */
 
-.container_Encuesta .calificacion_extra{
-    display: flex;
+.calificacion_extra{
+    display: none;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     gap: 1rem;
 }
 
-.container_Encuesta .calificacion_extra .calificar_extra{
+.calificacion_extra.fade-in{
+    display: flex;
+    animation: fade-in 2s forwards;
+}
+
+.calificar_extra{
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-areas: "A B";
@@ -143,8 +178,9 @@
     align-items: center;
     place-items: center; 
 
-    height: 90%;
-    width: 90%;
+    
+    width: 70%;
+    padding: 2%;
 
     background: #667db641;  
     background: -webkit-linear-gradient(to right, #667db641, #0082c841, #0082c841, #667db641);  
@@ -152,48 +188,43 @@
     border-radius: 1rem;
     border: 0.3rem outset white;
 
-    --altura: 70%;
-    --anchura: 70%;
-    --objeto: contain;
+    --anchura: clamp(3rem, 5vw + .5rem, 12rem);
+    --objeto: cover;
 }
 
-.container_Encuesta .calificacion_extra .calificar_extra #wrong_1{
+.calificar_extra #wrong_1{
     cursor: pointer;
     color: black;
 
     width: var(--anchura);
-    height: var(--altura);
     object-fit: var(--objeto);
 
     grid-area: A;
 }
 
-.container_Encuesta .calificacion_extra .calificar_extra #good_1{
+.calificar_extra #good_1{
     cursor: pointer;
     color: black;
 
     width: var(--anchura);
-    height: var(--altura);
     object-fit: var(--objeto);
 
     grid-area: B;
 }
 
-.container_Encuesta .calificacion_extra .calificar_extra #wrong_2{
+.calificar_extra #wrong_2{
     cursor: pointer;
     color: black;
 
     width: var(--anchura);
-    height: var(--altura);
     object-fit: var(--objeto);
 }
 
-.container_Encuesta .calificacion_extra .calificar_extra #good_2{
+.calificar_extra #good_2{
     cursor: pointer;
     color: black;
 
     width: var(--anchura);
-    height: var(--altura);
     object-fit: var(--objeto);
 }
 
@@ -220,7 +251,29 @@
 
 /*            Calificacion 2        */
 
-.container_Encuesta .calificacion2{
+.calificacion2{
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.calificacion2.fade-in{
+    display: flex;
+    animation: fade-in 2s forwards;
+}
+
+.calificacion2_img_p{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.calificacion2_contenido {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -229,13 +282,21 @@
     gap: 2rem;
 }
 
-.container_Encuesta .calificacion2 .encuesta-img{
-    width: 50%;
-    height: 50%;
+.calificacion2_contenido div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.calificacion2 .encuesta-img{
+    width: clamp(9rem, 15vw + .5rem, 40rem);
+    border: 0.2rem ridge black;
+    object-fit: cover;
     cursor: pointer;
 }
 
-.container_Encuesta .calificacion2 .encuesta-img.active{
+.calificacion2 .encuesta-img.active{
     animation: activeAnimationImg 0.2s ease-in-out;
     border-radius: 2rem;
     border: 0.2rem ridge black;
@@ -246,15 +307,20 @@
 /*            Calificacion 3        */
 
 
-.container_Encuesta .calificacion3{
-    display: flex;
+.calificacion3{
+    display: none;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     gap: 1rem;
 }
 
-.container_Encuesta .calificacion3 .calificar{
+.calificacion3.fade-in{
+    display: flex;
+    animation: fade-in 2s forwards;
+}
+
+.calificacion3 .calificar{
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-areas: "A B";
@@ -263,8 +329,8 @@
     align-items: center;
     place-items: center; 
 
-    height: 70%;
     width: 70%;
+    padding: 3%;
 
     background: #667db641;  
     background: -webkit-linear-gradient(to right, #667db641, #0082c841, #0082c841, #667db641);  
@@ -272,48 +338,43 @@
     border-radius: 1rem;
     border: 0.3rem outset white;
 
-    --altura: 70%;
-    --anchura: 70%;
-    --objeto: contain;
+    --anchura: clamp(3rem, 5vw + .5rem, 12rem);
+    --objeto: cover;
 }
 
-.container_Encuesta .calificacion3 .calificar #sad_1{
+.calificacion3 .calificar #sad_1{
     cursor: pointer;
     color: black;
 
     width: var(--anchura);
-    height: var(--altura);
     object-fit: var(--objeto);
 
     grid-area: A;
 }
 
-.container_Encuesta .calificacion3 .calificar #happy_1{
+.calificacion3 .calificar #happy_1{
     cursor: pointer;
     color: black;
 
     width: var(--anchura);
-    height: var(--altura);
     object-fit: var(--objeto);
 
     grid-area: B;
 }
 
-.container_Encuesta .calificacion3 .calificar #sad_2{
+.calificacion3 .calificar #sad_2{
     cursor: pointer;
     color: black;
 
     width: var(--anchura);
-    height: var(--altura);
     object-fit: var(--objeto);
 }
 
-.container_Encuesta .calificacion3 .calificar #happy_2{
+.calificacion3 .calificar #happy_2{
     cursor: pointer;
     color: black;
 
     width: var(--anchura);
-    height: var(--altura);
     object-fit: var(--objeto);
 }
 
@@ -370,6 +431,17 @@
     }
 }
 
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+    
+}
+
+/* Mensaje agradecimiento */
 
 #message-container {
     display: none;
@@ -383,17 +455,27 @@
 }
   
 #message {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
     color: white;
     text-align: center;
     margin-top: 50vh;
-    transform: translateY(-50%);
-    height: 40%;
-    width: 30%;
+    width: clamp(20rem, 50vw + .5rem, 50rem);
+    object-fit: cover;
 }
 
+/* media query */
 
 @media (max-height: 40rem){
     .container_Encuesta .estrellas img{
         padding: 2%;
+    }
+}
+
+@media (max-height: 400px){
+    .container_Encuesta{
+        height: 100%;
     }
 }
