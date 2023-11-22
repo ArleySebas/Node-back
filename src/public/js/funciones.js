@@ -185,7 +185,6 @@ class Encuesta {
         }, 0);
 
         if (countTrue > 0){
-          // calificacionExtra.style.display = 'flex';
           calificacionExtra.classList.add('fade-in');
           containerEncuesta.style.height = '200dvb';
           scrollEncuesta.style.display = 'flex'
@@ -193,13 +192,11 @@ class Encuesta {
           
         }
         if (countTrue > 1){
-          // calificacion2.style.display = 'flex';
           calificacion2.classList.add('fade-in');
           containerEncuesta.style.height = '100%';
           
         }
         if (countTrue > 2){
-          // calificacion3.style.display = 'flex';
           calificacion3.classList.add('fade-in');
         }
 
@@ -213,33 +210,27 @@ class Encuesta {
   }
 
   toggleStar(star) {
-    for (let i = 0; i < this.labels.length; i++) {
-      if (i <= star) {
-        this.labels[i].classList.add('active');
-      } else {
-        this.labels[i].classList.remove('active');
-      }
-    }
-
     const numerosSeleccionado = [0, 1, 2, 3, 4];
 
-    for (let i = 0; i <= star; i++) {
-      if (star > 4) {
-        break
-      }
-      if (numerosSeleccionado.includes(star)) {
-        emojis2[i].style.display = 'grid';
-        emojis2[i].classList.add('active');
-        emojis1[i].style.display = 'none';
+    for (let i = 0; i < numerosSeleccionado.length; i++) {
+        const currentIndex = numerosSeleccionado[i];
+        const currentEmojis1 = emojis1[currentIndex];
+        const currentEmojis2 = emojis2[currentIndex];
 
-      } else {
-        emojis1[star].style.display = 'grid';
-        emojis2[star].style.display = 'none';
-
-      }
-    }
-
-  }
+        if (currentIndex === star) {
+          if (!currentEmojis2.classList.contains('active')) {
+            currentEmojis2.style.display = 'grid';
+            currentEmojis2.classList.add('active');
+            currentEmojis1.style.display = 'none';
+          };
+            
+        } else {
+            currentEmojis2.classList.remove('active');
+            currentEmojis2.style.display = 'none';
+            currentEmojis1.style.display = 'grid';
+        };
+    };
+  };
 
   toggleOption(selectedOption) {
     this.labels.forEach((label) => {
@@ -396,5 +387,5 @@ if (urlResumen.includes(miurl)) {
       const redirigir = '/Encuesta';
       window.location.href = redirigir;
     }
-  }, 1000);
+  }, 1000*10*10);
 }
