@@ -387,5 +387,5 @@ if (urlResumen.includes(miurl)) {
       const redirigir = '/Encuesta';
       window.location.href = redirigir;
     }
-  }, 1000*10*10);
+  }, 1000);
 }
