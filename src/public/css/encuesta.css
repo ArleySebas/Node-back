@@ -55,6 +55,7 @@
     width: clamp(12rem, 30vw + .5rem, 50rem);
     object-fit: cover;
 
+    border: 0.4rem ridge black;
     box-shadow: 0 0 1.9rem black;
 }
 

@@ -23,7 +23,7 @@
   align-items: center;
 
   width: 100%;
-  z-index: 2;
+  /* z-index: 2; */
 }
 
 .img-header_Resumen {
@@ -86,6 +86,7 @@
   width: 100%;
   height: auto;
   z-index: 5;
+  padding: 2%;
 
   position: relative;
 
@@ -100,6 +101,7 @@
 
   gap: 3%;
   height: 100svh;
+
   padding: 3%;
 }
 
@@ -108,8 +110,7 @@
   border-radius: 2rem;
   box-shadow: 0.1rem 0.1rem 0.8rem 0.5rem black;
 
-  width: clamp(15rem, 20vw + .5rem, 45rem);
-  height: clamp(15rem, 20vw + .5rem, 45rem);
+  width: clamp(15rem, 25vw + .5rem, 45rem);
   object-fit: cover;
 }
 
@@ -134,23 +135,27 @@
   object-fit: cover;
 }
 
-.dividir_Res span {
+.dividir_Res .span_resumen {
   position: relative;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
 
-  max-height: 100%;
-  max-width: 100%;
-
+  gap: clamp(1rem, 1vw + .5rem, 4rem);
+  padding: 2%;
+  height: auto;
+  
   font-size: clamp(1rem, 2vw + .5rem, 5rem);
   font-family: cursive;
+}
+
+.span_resumen > * {
+  padding: 1%;
 
   background-color: #167DDC;
   box-shadow: 0.1rem 0.1rem 0.1rem 0.2rem black;
   border-radius: clamp(0.5rem, 1vw + .5rem, 2rem);
-  padding: 2%;
 }
 
 .dividir_Res span:nth-child(5)::after {
@@ -194,7 +199,7 @@
   width: 300%;
   height: 70%;
   z-index: -1;
-
+  
   background: no-repeat url("/img/wave2.png");
   background-size: 100% 50%;
 }

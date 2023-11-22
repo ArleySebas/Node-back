@@ -37,10 +37,8 @@ indexCtrl.createNewUser = async (req, res) => {
         req.session.usuarioId = usuario;
         req.session.tiempoSesion = new Date().getTime();
 
-        console.log('sesiones activas',req.session);
         res.redirect('/Servicios');
     } catch (error) {
-        console.error(error);
         res.redirect('/')
     }
 };
@@ -88,8 +86,6 @@ indexCtrl.userSelection = async (req, res) => {
 
         const { servicio } = req.body;
 
-        console.log('usuarioId', req.session);
-
         const date = new Date();
         const tiempoFinal = date.getTime();
         const tiempoSolicitud = (tiempoFinal - req.session.tiempoSesion) / 1000;
@@ -115,7 +111,6 @@ indexCtrl.userSelection = async (req, res) => {
     } catch (error) {
         delete req.session.tiempoSesion;
         req.session.destroy();
-        console.error(error);
         res.redirect('/');
     };
 };
@@ -147,8 +142,6 @@ indexCtrl.procesarEncuesta = async (req, res) => {
     try {
     
         const { 0:encuesta_1, 1:encuesta_Extra, 2:encuesta_2, 3:encuesta_3 } = req.body; //desestructuración de objetos
-
-        console.log('body', req.body);
         
         const date = new Date();
         const tiempoFinalSesion = date.getTime();
@@ -156,22 +149,29 @@ indexCtrl.procesarEncuesta = async (req, res) => {
 
         const newSelection = await Formulario.findById(req.session.usuarioId);
 
-        newSelection.encuesta1 = encuesta_1;
-        newSelection.encuestaExtra = encuesta_Extra;
-        newSelection.encuesta2 = encuesta_2;
-        newSelection.encuesta3 = encuesta_3;
-        newSelection.tiempoSesionTotal = tiempoSesionTotal;
-        await newSelection.save();
+        if (!newSelection) {
+            delete req.session.tiempoSesion;
+            req.session.destroy();
+            res.redirect('/');
+            return;
+        } else {
+            newSelection.encuesta1 = encuesta_1;
+            newSelection.encuestaExtra = encuesta_Extra;
+            newSelection.encuesta2 = encuesta_2;
+            newSelection.encuesta3 = encuesta_3;
+            newSelection.tiempoSesionTotal = tiempoSesionTotal;
+            await newSelection.save();
 
-        delete req.session.tiempoSesion;
-        req.session.destroy();
-        res.json({redireccion_url:'/'});
+            delete req.session.tiempoSesion;
+            req.session.destroy();
+            res.json({redireccion_url:'/'});
+        }
 
     } catch (error) {
-        console.error(error);
         delete req.session.tiempoSesion;
         req.session.destroy();
         res.redirect('/');
+        return;
     }
 };
 

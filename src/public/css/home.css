@@ -81,8 +81,7 @@
 }
 
 .front_home img{
-    width: 50vmin;
-    height: 50vmin;
+    width: clamp(15rem, 40vw + .5rem, 50rem);
     object-fit: cover;
     cursor: pointer;
 }
