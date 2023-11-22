@@ -291,7 +291,7 @@
 }
 
 .calificacion2 .encuesta-img{
-    width: clamp(9rem, 15vw + .5rem, 40rem);
+    width: clamp(12rem, 20vw + .5rem, 40rem);
     border: 0.2rem ridge black;
     object-fit: cover;
     cursor: pointer;
