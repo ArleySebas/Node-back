@@ -52,7 +52,7 @@
 }
 
 .Encuesta_Preguntas{
-    width: clamp(12rem, 30vw + .5rem, 50rem);
+    width: clamp(20rem, 35vw + .5rem, 50rem);
     object-fit: cover;
 
     border: 0.4rem ridge black;
