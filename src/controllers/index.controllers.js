@@ -155,16 +155,24 @@ indexCtrl.procesarEncuesta = async (req, res) => {
             res.redirect('/');
             return;
         } else {
-            newSelection.encuesta1 = encuesta_1;
-            newSelection.encuestaExtra = encuesta_Extra;
-            newSelection.encuesta2 = encuesta_2;
-            newSelection.encuesta3 = encuesta_3;
-            newSelection.tiempoSesionTotal = tiempoSesionTotal;
-            await newSelection.save();
 
-            delete req.session.tiempoSesion;
-            req.session.destroy();
-            res.json({redireccion_url:'/'});
+            if (encuesta_1 == null || encuesta_Extra == null || encuesta_2 == null || encuesta_3 == null){
+                delete req.session.tiempoSesion;
+                req.session.destroy();
+                res.redirect('/');
+                return;
+            } else {
+                newSelection.encuesta1 = encuesta_1;
+                newSelection.encuestaExtra = encuesta_Extra;
+                newSelection.encuesta2 = encuesta_2;
+                newSelection.encuesta3 = encuesta_3;
+                newSelection.tiempoSesionTotal = tiempoSesionTotal;
+                await newSelection.save();
+
+                delete req.session.tiempoSesion;
+                req.session.destroy();
+                res.json({redireccion_url:'/'});
+            }      
         }
 
     } catch (error) {

@@ -52,7 +52,7 @@
 }
 
 .Encuesta_Preguntas{
-    width: clamp(20rem, 35vw + .5rem, 50rem);
+    width: clamp(20rem, 75vw + .5rem, 50rem);
     object-fit: cover;
 
     border: 0.4rem ridge black;
@@ -125,7 +125,7 @@
 
 .estrellas img{
     cursor: pointer;    
-    width: clamp(3rem, 5vw + .5rem, 12rem);
+    width: clamp(3rem, 10vw + .5rem, 12rem);
     object-fit: cover;
     padding: 5%;
 }
@@ -189,7 +189,7 @@
     border-radius: 1rem;
     border: 0.3rem outset white;
 
-    --anchura: clamp(3rem, 5vw + .5rem, 12rem);
+    --anchura: clamp(3rem, 9vw + .5rem, 12rem);
     --objeto: cover;
 }
 
@@ -291,7 +291,7 @@
 }
 
 .calificacion2 .encuesta-img{
-    width: clamp(12rem, 20vw + .5rem, 40rem);
+    width: clamp(12rem, 45vw + .5rem, 40rem);
     border: 0.2rem ridge black;
     object-fit: cover;
     cursor: pointer;
@@ -339,7 +339,7 @@
     border-radius: 1rem;
     border: 0.3rem outset white;
 
-    --anchura: clamp(3rem, 5vw + .5rem, 12rem);
+    --anchura: clamp(3rem, 9vw + .5rem, 12rem);
     --objeto: cover;
 }
 
@@ -453,6 +453,7 @@
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 9999;
+    cursor: pointer;
 }
   
 #message {
@@ -463,7 +464,7 @@
     color: white;
     text-align: center;
     margin-top: 50vh;
-    width: clamp(20rem, 50vw + .5rem, 50rem);
+    width: clamp(20rem, 80vw + .5rem, 50rem);
     object-fit: cover;
 }
 

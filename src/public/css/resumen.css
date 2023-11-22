@@ -11,6 +11,8 @@
   background: -moz-linear-gradient(top, #167DDC 0%, #50B8F3 60%, #8EE6FE 100%);
   background: -webkit-linear-gradient(top, #167DDC 0%, #50B8F3 60%, #8EE6FE 100%);
   background: linear-gradient(to bottom, #167DDC 0%, #50B8F3 60%, #8EE6FE 100%);
+  /* height: 100%; */
+  height: clamp(200px, 200vw + .5rem, 1500px);
 }
 
 .header-Resumen {
@@ -100,7 +102,7 @@
   flex-direction: column;
 
   gap: 3%;
-  height: 100svh;
+  /* height: 100%; */
 
   padding: 3%;
 }
@@ -110,7 +112,7 @@
   border-radius: 2rem;
   box-shadow: 0.1rem 0.1rem 0.8rem 0.5rem black;
 
-  width: clamp(15rem, 25vw + .5rem, 45rem);
+  width: clamp(15rem, 50vw + .5rem, 45rem);
   object-fit: cover;
 }
 
@@ -246,3 +248,22 @@
     background-position-x: clamp(30rem, 80vw + .5rem, 100rem);
   }
 }
+
+/* 
+@media (height > 600px){
+  .section_Res{
+    height: 100%;
+  }
+}
+
+@media (600px < height < 799px){
+  .section_Res{
+    height: 100vw;
+  }
+}
+
+@media (height < 599px){
+  .section_Res{
+    height: 100svb;
+  }
+} */

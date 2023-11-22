@@ -81,7 +81,7 @@
 }
 
 .front_home img{
-    width: clamp(20rem, 45vw + .5rem, 50rem);
+    width: clamp(20rem, 80vw + .5rem, 50rem);
     object-fit: cover;
     cursor: pointer;
 }
