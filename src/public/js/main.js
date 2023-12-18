@@ -142,6 +142,31 @@ miEncuesta3.getID();
 
 document?.addEventListener('click', function(event) {
   if (rate.every(value => value === true)) {
+    
+    const data = miEncuesta1.getID().atributos;
+
+    const url = '/Procesar-encuesta';
+
+    const sendData = async () => {
+      try {
+        const response = await fetch(url, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+
+        if (response.ok) {
+          const jsonResponse = await response.json();
+        } else {
+          console.log('Error:', response.status);
+        }
+      } catch (error) {
+        console.log('Error:', error);
+      }
+    };
+    sendData();
     showThankYouMessage();
   };
 });

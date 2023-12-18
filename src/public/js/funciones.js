@@ -302,34 +302,7 @@ function showThankYouMessage() {
   messageContainer.style.display = 'block';
 
   setTimeout(function () {
-    // messageContainer.style.display = 'none';
-
-    const data = miEncuesta1.getID().atributos;
-    // data['correo'] = 'arleysebas123@gmail.com'
-    const url = '/Procesar-encuesta';
-
-    const sendData = async () => {
-      try {
-        const response = await fetch(url, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(data)
-        });
-
-        if (response.ok) {
-          const jsonResponse = await response.json();
-          window.location.href = jsonResponse.redireccion_url;
-        } else {
-          console.log('Error:', response.status);
-        }
-      } catch (error) {
-        console.log('Error:', error);
-      }
-    };
-
-    sendData();
+    window.location.href = '/';
   }, 4000);
 }
 
